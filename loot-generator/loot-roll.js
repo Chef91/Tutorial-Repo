@@ -118,3 +118,21 @@ function generateMinorLoot(level)  {
 
 const loot = generateMinorLoot(10);
 console.log("Minor Loot Roll:", loot);
+
+const levelSelect = document.getElementById("levelSelect");
+const rollButton = document.getElementById("rollButton");
+const lootResult = document.getElementById("lootResult");
+
+rollButton.addEventListener("click", function () {
+  const selectedLevel = Number(levelSelect.value);
+  const loot = generateMinorLoot(selectedLevel);
+
+  lootResult.innerHTML = `
+    <h2>Minor Loot Roll</h2>
+    <p><strong>Level:</strong> ${selectedLevel}</p>
+    <p><strong>Copper:</strong> ${loot.copper}</p>
+    <p><strong>Silver:</strong> ${loot.silver}</p>
+    <p><strong>Gold:</strong> ${loot.gold}</p>
+    <p><strong>Platinum:</strong> ${loot.platinum}</p>
+  `;
+});
